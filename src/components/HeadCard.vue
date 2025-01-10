@@ -33,7 +33,7 @@
                         My professional interests centers on hardware design, embedded development, and electronic work. 
                         My overarching objective is to integrate my enthusiasm for hockey with my technical expertise, 
                         this may involve initiatives such as establishing a sports-oriented data science club at the university, 
-                        or creating physical hockey training tools
+                        or creating physical hockey training tools. I'm also pretty cool.
                     </p>
                 </div>
                 <div class="skills">
