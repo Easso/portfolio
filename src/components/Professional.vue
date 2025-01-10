@@ -70,11 +70,12 @@ h2, h3 {
 
 .card {
   max-width: 300px;
-  min-height: 200px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  
 
   max-width: 600px;
   padding: 35px;

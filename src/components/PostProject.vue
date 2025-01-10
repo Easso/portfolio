@@ -46,6 +46,9 @@
                         <input type="text" placeholder="Title..." name="job_title" v-model="postJobDataTemp.temp_title" ref="job_title">
                     </div>
                     <div class="input-container">
+                        <input type="text" placeholder="Company..." name="job_company" v-model="postJobDataTemp.temp_company" ref="job_company">
+                    </div>
+                    <div class="input-container">
                         <input type="text" placeholder="Start date..." name="job_startDate" v-model="postJobDataTemp.temp_startDate" ref="job_startDate">
                     </div>
                     <div class="input-container">
@@ -208,6 +211,7 @@ export default {
         PostJob() {
             console.log(this.postJobDataTemp.temp_tasks)
                 this.postJobData.workID = this.getPartitionKey();
+                this.postJobData.company = this.postJobDataTemp.temp_company
                 this.postJobData.title =  this.postJobDataTemp.temp_title;
                 this.postJobData.description = this.postJobDataTemp.temp_description;
                 this.postJobData.startDate = this.postJobDataTemp.temp_startDate;
@@ -226,7 +230,7 @@ export default {
                 } if (this.postJobDataTemp.temp_task6 != '') {
                     this.postJobData.tasks[5] = this.postJobDataTemp.temp_task6;
                 } 
-                this.postJobData.company = this.postJobDataTemp.temp_company;
+                this.postJobData.company = '';
                 this.postJobDataTemp.temp_title = '';
                 this.postJobDataTemp.temp_description = '';
                 this.postJobDataTemp.temp_startDate = '';
@@ -253,7 +257,7 @@ export default {
                 this.postClassData.classCode = this.postClassDataTemp.temp_classCode;
                 this.postClassData.classLink = this.postClassDataTemp.temp_classLink;
                 this.postClassData.githubLink = this.postClassDataTemp.temp_githubLink;
-                this.postClassDataTemp.temp_className = '';
+                this.postClassDataTemp.temp_classCode = '';
                 this.postClassDataTemp.temp_description = '';
                 this.postClassDataTemp.temp_className = '';
                 this.postClassDataTemp.temp_classLink = '';
@@ -267,10 +271,11 @@ export default {
         clearFields() {
             this.postClassDataTemp.temp_className = '';
             this.postClassDataTemp.temp_description = '';
-            this.postClassDataTemp.temp_className = '';
+            this.postClassDataTemp.temp_classCode = '';
             this.postClassDataTemp.temp_classLink = '';
             this.postClassDataTemp.temp_githubLink = '';
             this.postJobDataTemp.temp_title = '';
+            this.postJobDataTemp.temp_company = '';
             this.postJobDataTemp.temp_description = '';
             this.postJobDataTemp.temp_startDate = '';
             this.postJobDataTemp.temp_endDate = '';
@@ -305,7 +310,11 @@ export default {
             console.log(hour)
             var minutes = String(date.getMinutes());
             console.log(minutes)
-            var key = String(year + month + day + hour + minutes);
+            if (minutes < 10) {
+                var key = String(10000000000-parseInt(100*(year + month + day + hour) + minutes));
+            } else {
+            var key = String(10000000000-parseInt(year + month + day + hour + minutes));
+            }
 
             return key
         }

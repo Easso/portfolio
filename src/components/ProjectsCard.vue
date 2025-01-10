@@ -72,7 +72,8 @@ export default {
     background-color:#b2c5b2;
     border-radius: 25px;
     box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
-    min-width: 30%;
+    width: 30%;
+    height: 360px;
 }
 .project-card img{
     height: 10rem;
