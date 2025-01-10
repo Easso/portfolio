@@ -92,7 +92,13 @@ export default {
 
 @media only screen and (max-width: 950px) {
     .project-card {
-        width: 75%;
+    margin: 10px;
+    padding: 10px;
+    flex-wrap: 0 0 40%;
+    background-color:#b2c5b2;
+    border-radius: 25px;
+    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+    width: 75%;
     }
 }
 </style>
