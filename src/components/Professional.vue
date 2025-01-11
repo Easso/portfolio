@@ -70,14 +70,13 @@ h2, h3 {
 
 .card {
   max-width: 300px;
-  height: 450px;
+  /* Remove fixed height */
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  
 
-  max-width: 600px;
   padding: 35px;
   margin: 10px 10px 10px 10px;
 
@@ -86,6 +85,8 @@ h2, h3 {
   background-color: rgba(255, 255, 255, 0.25);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 
+  /* Allow the card to grow as needed */
+  overflow: hidden;
 }
 
 .header {
@@ -109,8 +110,10 @@ h2, h3 {
 }
 
 .jobDescription {
- 
-  padding: 8px 8px -2px 8px;
+  /* Add word wrapping and spacing for readability */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 8px;
   border-radius: 5px;
 }
 
@@ -132,6 +135,7 @@ h2, h3 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  gap: 5px; /* Add spacing between tasks */
 }
 .tasks {
   font-size: small;
@@ -151,23 +155,10 @@ h2, h3 {
 }
 @media only screen and (max-width: 950px) {
   .card {
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  
-
-  max-width: 600px;
-  padding: 35px;
-  margin: 10px 10px 10px 10px;
-
-  border: 1px solid rgba(255, 255, 255, .25);
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-
-}
+    /* Allow cards to shrink/grow as needed on smaller screens */
+    height: auto;
+    padding: 20px;
   }
+}
 
 </style>

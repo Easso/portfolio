@@ -5,7 +5,7 @@
           <h2>{{ lambdaReturnData.Items[index].classCode }}</h2>
           <h4>{{ lambdaReturnData.Items[index].className }}</h4>
         </div>
-        <p>{{ lambdaReturnData.Items[index].description }}</p>
+        <p class="description">{{ lambdaReturnData.Items[index].description }}</p>
         <div class="links">
           <a class="link" :href="lambdaReturnData.Items[index].classLink" target="_blank" title="Link to class">
             <img src="../assets/link-alt-1-svgrepo-com.svg" :href="lambdaReturnData.Items[index].classLink">
@@ -59,16 +59,15 @@ p {
 p:not(:last-child) {
   margin-bottom: 1.5em;
 }
-
 .card {
   max-width: 300px;
-  min-height: 200px;
+  /* Remove fixed height */
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 
-  max-width: 500px;
-  height: 300px;
   padding: 35px;
   margin: 10px 10px 10px 10px;
 
@@ -77,6 +76,16 @@ p:not(:last-child) {
   background-color: rgba(255, 255, 255, 0.25);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 
+  /* Allow the card to grow as needed */
+  overflow: hidden;
+}
+
+.description {
+  /* Add word wrapping and spacing for readability */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 8px;
+  border-radius: 5px;
 }
 
 .link img {
@@ -90,21 +99,9 @@ p:not(:last-child) {
 
 @media only screen and (max-width: 950px) {
   .card {
-  max-width: 300px;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  max-width: 500px;
-  padding: 35px;
-  margin: 10px 10px 10px 10px;
-
-  border: 1px solid rgba(255, 255, 255, .25);
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-
-}
+    /* Allow cards to shrink/grow as needed on smaller screens */
+    height: auto;
+    padding: 20px;
+  }
 }
 </style>

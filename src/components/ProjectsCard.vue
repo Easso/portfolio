@@ -73,7 +73,7 @@ export default {
     border-radius: 25px;
     box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
     width: 30%;
-    height: 360px;
+    height: 400px;
 }
 .project-card img{
     height: 10rem;
@@ -94,6 +94,7 @@ export default {
     .project-card {
     margin: 10px;
     padding: 10px;
+    height: auto;
     flex-wrap: 0 0 40%;
     background-color:#b2c5b2;
     border-radius: 25px;

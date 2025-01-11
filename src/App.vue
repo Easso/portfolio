@@ -279,10 +279,10 @@ body{
 .experiences .cards {
   background-color: #3c5148;
   opacity: 0;
-  max-height: 0px;
+  max-height: 0;
   overflow-y: hidden;
   transition: all 0.4s ease-out;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -315,9 +315,11 @@ body{
 
 .experiences.open .cards {
   opacity: 1;
-  max-height: 2000px;
+  max-height: none; /* Allow content to grow dynamically */
+  height: auto; /* Dynamically adjusts based on content */
+  overflow-y: visible; /* Ensures all content is visible */
   background-color: #b2c5b2;
-  padding: 0 0 0 0;
+  padding: 0;
 }
 
 .experiences.open .title {
@@ -331,6 +333,7 @@ body{
   .experiences {
     width: 100%;
     margin: 0;
+    height: 100%;
   }
 
   .experiences .title {
@@ -368,7 +371,6 @@ body{
     width: 100%;
     padding: 5px 0 5px 5px;
   }
-;
 }
 
 </style>
