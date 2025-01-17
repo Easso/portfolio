@@ -29,8 +29,8 @@
                 <div class="about-me">
                     <h1 class="right-title">About Me</h1>
                     <p>
-                        I am a third-year electrical engineering co-op student enrolled at the University of Waterloo. 
-                        My professional interests centers on hardware design, embedded development, and electronic work. 
+                        I am a fourth-year electrical engineering co-op student enrolled at the University of Waterloo. 
+                        My professional interests centers on hardware design, embedded development and electronic work. 
                         My overarching objective is to integrate my enthusiasm for hockey with my technical expertise, 
                         this may involve initiatives such as establishing a sports-oriented data science club at the university, 
                         or creating physical hockey training tools. I'm also pretty cool.

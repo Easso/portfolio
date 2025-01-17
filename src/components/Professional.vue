@@ -32,17 +32,18 @@ export default {
         }
     },
     methods: {
-        GetProjects() {
+        GetJobs() {
             axios.get('https://juuhsxsou8.execute-api.us-east-2.amazonaws.com/production/getjobs').then(response => {
                 console.log(response);
                 this.lambdaReturnData = response.data;
+                this.lambdaReturnData.Items.sort((a, b) => b.workID - a.workID);
             }).catch(err => {
                 console.log(err);
             })
         }
     },
     mounted() {
-        this.GetProjects();
+        this.GetJobs();
     }
 }
 </script>

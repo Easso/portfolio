@@ -41,6 +41,7 @@ export default {
             axios.get('https://u2mvdypt0e.execute-api.us-east-2.amazonaws.com/production/getprojects').then(response => {
                 console.log(response);
                 this.lambdaReturnData = response.data;
+                this.lambdaReturnData.Items.sort((a, b) => b.projectId - a.projectId);
             }).catch(err => {
                 console.log(err);
             })

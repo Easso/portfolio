@@ -32,6 +32,7 @@ export default {
             axios.get('https://993ofk57b3.execute-api.us-east-2.amazonaws.com/production/getclass').then(response => {
                 console.log(response);
                 this.lambdaReturnData = response.data;
+                this.lambdaReturnData.Items.sort((a, b) => b.classID - a.classID);
             }).catch(err => {
                 console.log(err);
             })
