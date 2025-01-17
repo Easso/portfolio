@@ -1,24 +1,26 @@
 <template>
     <div class="main-container">
-        <div class="card" v-for="(items, index) in lambdaReturnData.Items" v-bind:key="items">
-          <div class="header">
-            <div class="company"><h2>{{ lambdaReturnData.Items[index].company }}</h2></div>
-            <div class="position"><h3>{{ lambdaReturnData.Items[index].title }}</h3></div>
-            <div class="information">
-              <div class="dates">
-                <div class="start"><strong>{{ lambdaReturnData.Items[index].startDate }} </strong></div>
-                <div class="end"><strong>{{ lambdaReturnData.Items[index].endDate }}</strong></div>
-              </div>
-              <div class="location"><strong>{{ lambdaReturnData.Items[index].location }}</strong></div>
+      <div class="card" v-for="(items, index) in lambdaReturnData.Items" v-bind:key="items">
+        <div class="header">
+          <div class="company"><h2>{{ lambdaReturnData.Items[index].company }}</h2></div>
+          <div class="position"><h3>{{ lambdaReturnData.Items[index].title }}</h3></div>
+          <div class="information">
+            <div class="dates">
+              <div class="start"><strong>{{ lambdaReturnData.Items[index].startDate }} </strong></div>
+              <div class="end"><strong>{{ lambdaReturnData.Items[index].endDate }}</strong></div>
             </div>
-          </div>
-          <p class="jobDescription">{{ lambdaReturnData.Items[index].description }}</p>
-          <div class="task-container">
-            <div class="tasks" v-for="itemsT in lambdaReturnData.Items[index].tasks">
-              <div class="task"><strong>{{ itemsT }}</strong></div> 
-            </div>
+            <div class="location"><strong>{{ lambdaReturnData.Items[index].location }}</strong></div>
           </div>
         </div>
+        <p class="jobDescription">{{ lambdaReturnData.Items[index].description }}</p>
+        <div class="task-container">
+          <ul class="tasks">
+            <li v-for="itemsT in lambdaReturnData.Items[index].tasks" :key="itemsT" class="task">
+              {{ itemsT }}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -71,23 +73,21 @@ h2, h3 {
 
 .card {
   max-width: 300px;
-  /* Remove fixed height */
-  height: auto;
+  height: 700px; /* Fixed height for regular screens */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; /* Space out content evenly */
   align-items: center;
 
   padding: 35px;
   margin: 10px 10px 10px 10px;
 
-  border: 1px solid rgba(255, 255, 255, .25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.25);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 
-  /* Allow the card to grow as needed */
-  overflow: hidden;
+  overflow: hidden; /* Prevent layout breaking */
 }
 
 .header {
@@ -111,11 +111,16 @@ h2, h3 {
 }
 
 .jobDescription {
-  /* Add word wrapping and spacing for readability */
   word-wrap: break-word;
   overflow-wrap: break-word;
   padding: 8px;
   border-radius: 5px;
+
+  flex-grow: 1; /* Let the description take up flexible space */
+  display: flex;
+  align-items: flex-start; /* Align description to the top */
+  justify-content: flex-start;
+  overflow: hidden; /* Prevent overflow for larger screens */
 }
 
 .start:after {
@@ -132,33 +137,35 @@ h2, h3 {
 }
 
 .task-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 5px; /* Add spacing between tasks */
+  width: 100%;
+  margin-top: 10px;
 }
+
 .tasks {
-  font-size: small;
-  width: 45%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
 }
 
 .task {
-  outline-style: solid;
-  outline-width: 0.1rem;
-  outline-color: #1b2727;
-  padding: 8px;
-  margin: 8px;
-  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: small;
+  color: #1b2727;
 }
 @media only screen and (max-width: 950px) {
   .card {
-    /* Allow cards to shrink/grow as needed on smaller screens */
-    height: auto;
+    height: auto; /* Allow auto height for smaller screens */
     padding: 20px;
+  }
+
+  .jobDescription {
+    height: auto; /* Let description content expand naturally */
+    overflow: visible; /* Show full description on smaller screens */
+    flex-grow: unset;
+  }
+
+  .task-container {
+    max-height: none; /* Remove height restriction for tasks */
   }
 }
 
