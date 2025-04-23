@@ -1,0 +1,18 @@
+version: 1
+applications:
+  - appRoot: /
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm install
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: dist  # Vue.js typically builds to the dist directory
+        files:
+          - '**/*'  # Include all files from the dist folder, including PDFs
+      cache:
+        paths:
+          - node_modules/**/*  # Cache node_modules to speed up builds
