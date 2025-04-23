@@ -4,7 +4,7 @@
         <a class="nav-option" href="#experience">Experience</a>
         <a class="nav-option" href="#projects">Projects</a>
         <a class="nav-option" href="#contact-me">Contact</a>
-        <a class="nav-option" href="public/EassonWeisshaar-RESUME-portfolio.pdf" download="EassonWeisshaar-RESUME-portfolio.pdf">Resume</a>
+        <a class="nav-option" href="../public/EassonWeisshaar-RESUME-portfolio.pdf" download="EassonWeisshaar-RESUME-portfolio.pdf">Resume</a>
         <a class="nav-option" @click="toggleLoginPhase()" v-if="!loggedIn && !loginPresent">Login</a>
         <a class="nav-option" v-if="loggedIn">
           <router-link  style="text-decoration: none;" to="/post"><span>Post</span></router-link> 
